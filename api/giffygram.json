@@ -1,0 +1,20 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "",
+            "description": "",
+            "imageURL": "",
+            "timestamp": "",
+            "userId": 1
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "Cnut king of Britain",
+            "email": "cnut@me.com",
+            "dateJoined": "09451101"
+        }
+    ]
+}
