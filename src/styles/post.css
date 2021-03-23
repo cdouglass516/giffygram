@@ -54,7 +54,11 @@
 }
 
 .post__image {
-    width: 100%;
+    width: 50%;
+    height: auto;
+    border: 1px solid rgb(114, 49, 49);
+    border-radius: 1rem;
+    padding: 1rem;
 }
 
 .post__actions {

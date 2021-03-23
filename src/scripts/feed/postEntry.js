@@ -1,6 +1,7 @@
+//import{createPost} from "../store/index.js"
 export const PostEntry = () => {
     return `
-    <div class="newPost">
+    <form class="newPost">
         <div>
             <input value="Learning JavaScript"
                    name="postTitle"
@@ -22,7 +23,7 @@ export const PostEntry = () => {
 
         <button id="newPost__submit">Save</button>
         <button id="newPost__cancel">Cancel</button>
-    </div>
+    </form>
     `
 }
 ///This component will need eventListeners for when the buttons are clicked.
