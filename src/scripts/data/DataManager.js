@@ -54,7 +54,7 @@ export const deletePost = postId => {
         .then(response => response.json())
         .then(getPosts)
   }
-  
+
 export const getPosts = () => {
   return fetch("http://localhost:8088/posts")
     .then(response => response.json())
@@ -94,4 +94,22 @@ function streamToString(stream, cb) {
     })
         .then(response => response.json())
   
+  }
+
+  export const getSinglePost = (postId) => {
+    return fetch(`http://localhost:8088/posts/${postId}`)
+      .then(response => response.json())
+  }
+
+  export const updatePost = postObj => {
+    return fetch(`http://localhost:8088/posts/${postObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(postObj)
+  
+    })
+        .then(response => response.json())
+        .then(getPosts)
   }

@@ -4,9 +4,9 @@
  */
 
 //Get a reference to the location on the DOM where the app will display
-
+import {showEdit} from "./feed/PostEdit.js"
 import { NavBar } from "./nav/nav.js";
-import {getLoggedInUser, getDadJoke, createPost,postSearch,getPosts, getUsers, deletePost } from "./data/DataManager.js"
+import {getLoggedInUser, getDadJoke, createPost,postSearch,getPosts, getUsers, deletePost, getSinglePost} from "./data/DataManager.js"
 import { Footer } from "../footer/footer.js";
 import {PostEntry} from "./feed/postEntry.js";
 import { PostList } from "./feed/PostList.js"
@@ -55,7 +55,7 @@ const getDad = () =>{
   //  })
 }
 
-const showPostList = (filteredPosts) => {
+export const showPostList = (filteredPosts) => {
     //Get a reference to the location on the DOM where the list will display
     const postElement = document.querySelector(".postList");
     if (!Array.isArray(filteredPosts)) {
@@ -82,6 +82,18 @@ applicationElement.addEventListener("click", event => {
     deletePost(postId)
       .then(response => {
         showPostList();
+      })
+  }
+})
+
+//edit post event listners
+applicationElement.addEventListener("click", event => {
+  event.preventDefault();
+  if (event.target.id.startsWith("edit")) {
+    const postId = event.target.id.split("__")[1];
+    getSinglePost(postId)
+      .then(response => {
+        showEdit(response);
       })
   }
 })
@@ -146,6 +158,11 @@ applicationElement.addEventListener("click", event => {
     document.querySelector("input[name='postTitle']").value = "";
     document.querySelector("input[name='postURL']").value = "";
     document.querySelector("textarea[name='postDescription']").value = "";
+    if(document.querySelector(".form_h3").innerHTML == 'Edit This Post'){
+      document.getElementById("newPost__submit").style.display="block";
+      document.querySelector(".update__Button").remove();
+      document.querySelector(".form_h3").innerHTML = '';
+    }
   }
 
 startGiffyGram();

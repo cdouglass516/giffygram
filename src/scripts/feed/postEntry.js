@@ -2,15 +2,16 @@
 export const PostEntry = () => {
     return `
     <form class="newPost">
+    <h3 class="form_h3"></h3>
         <div>
-            <input value="Learning JavaScript"
+            <input value=""
                    name="postTitle"
                    class="newPost__input"
                    type="text"
                    placeholder="Title" />
         </div>
         <div>
-            <input value="https://media.giphy.com/media/S9dN7OWFj8GoRhTIuL/giphy-downsized.gif"
+            <input value=""
                    name="postURL"
                    class="newPost__input"
                    type="text"
@@ -19,8 +20,8 @@ export const PostEntry = () => {
 
         <textarea name="postDescription"
             class="newPost__input newPost__description"
-            placeholder="Story behind your gif...">Ethical chillwave jianbing ramps plaid subway tile.</textarea>
-
+            placeholder="Story behind your gif..."></textarea>
+        <label id="lblTimestamp"></label>
         <button id="newPost__submit">Save</button>
         <button id="newPost__cancel">Cancel</button>
     </form>
